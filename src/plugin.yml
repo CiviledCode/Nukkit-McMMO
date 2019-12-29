@@ -1,0 +1,4 @@
+name: McMMO
+main: com.civiledcode.mcmmo.Main
+version: '1.0'
+api: ["1.0.9"]
