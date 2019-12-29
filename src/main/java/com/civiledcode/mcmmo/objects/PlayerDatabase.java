@@ -1,8 +1,9 @@
 package com.civiledcode.mcmmo.objects;
 
 import cn.nukkit.Player;
+import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.Main;
-import com.civiledcode.mcmmo.events.LevelupEvent;
+import com.civiledcode.mcmmo.events.LevelUpEvent;
 
 import java.sql.SQLException;
 
@@ -36,10 +37,11 @@ public class PlayerDatabase {
         int finalAmount = getExperience(type) + Experience;
         int neededForLevel = (int) (Main.getInstance().getConfig().getInt("xpEarnedBy" + type) * Main.baseChangeAmount * getLevel(type));
         if(finalAmount >= neededForLevel) {
-            LevelupEvent event = new LevelupEvent(type, getLevel(type), player);
+            LevelUpEvent event = new LevelUpEvent(type, getLevel(type), player);
             Main.getInstance().getServer().getPluginManager().callEvent(event);
             setLevel(getLevel(type) + 1, type);
             setExperience(0, type);
+            player.sendTitle(TextFormat.colorize(Main.lang.getString("levelUp")), TextFormat.colorize(Main.lang.getString("levelUpSubtitle").replace("{LEVEL}", "" + getLevel(type)).replace("{TYPE}", type)));
         } else {
             setExperience(finalAmount, type);
         }

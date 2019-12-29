@@ -4,12 +4,13 @@ package com.civiledcode.mcmmo.events;
 import cn.nukkit.Player;
 import cn.nukkit.event.Event;
 
-public class LevelupEvent extends Event {
+public class LevelUpEvent extends Event {
+
     private String type;
     private int level;
     private Player player;
 
-    public LevelupEvent(String type, int level, Player player) {
+    public LevelUpEvent(String type, int level, Player player) {
         this.type = type;
         this.level = level;
         this.player = player;
@@ -26,4 +27,5 @@ public class LevelupEvent extends Event {
     public Player getPlayer() {
         return player;
     }
+    
 }
