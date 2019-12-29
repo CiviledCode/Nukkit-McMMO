@@ -20,7 +20,7 @@ public class PlayerDatabase {
 
     public int getExperience(String type) {
         try {
-            return Main.getPlayerDatabase().executeSelect("SELECT experience" + type + "FROM players WHERE name='" + player.getName() + "'").getInt("experienceMine");
+            return Main.getPlayerDatabase().executeSelect("SELECT experience" + type + "FROM players WHERE name='" + player.getName() + "'").getInt("experience" + type);
         } catch (SQLException e) {
             return 0;
         }
@@ -34,7 +34,7 @@ public class PlayerDatabase {
 
     public int getLevel(String type) {
         try {
-            return Main.getPlayerDatabase().executeSelect("SELECT experience" + type + "FROM players WHERE name='" + player.getName() + "'").getInt("levelMine");
+            return Main.getPlayerDatabase().executeSelect("SELECT level" + type + "FROM players WHERE name='" + player.getName() + "'").getInt("level" + type);
         } catch (SQLException e) {
             return 0;
         }
