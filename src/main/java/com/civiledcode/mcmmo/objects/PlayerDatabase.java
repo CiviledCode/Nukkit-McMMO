@@ -31,6 +31,17 @@ public class PlayerDatabase {
                 "WHERE name='" + player.getName() + "');");
     }
 
+    public void addExperience(int Experience, String type) {
+        int finalAmount = getExperience(type) + Experience;
+        int neededForLevel = (int) (Main.getInstance().getConfig().getInt("xpEarnedBy" + type) * Main.baseChangeAmount * getLevel(type));
+        if(finalAmount >= neededForLevel) {
+            setLevel(getLevel(type) + 1, type);
+            setExperience(0, type);
+        } else {
+            setExperience(finalAmount, type);
+        }
+    }
+
     public int getLevel(String type) {
         try {
             return Main.getPlayerDatabase().executeSelect("SELECT level" + type + "FROM players WHERE name='" + player.getName() + "'").getInt("level" + type);
