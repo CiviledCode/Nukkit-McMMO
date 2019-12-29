@@ -1,0 +1,8 @@
+bootMessage: "&aMc&eMMO has now started."
+shutdownMessage: "&aMc&eMMO is now shutting down."
+skillDescription: "View your statistics for a skill"
+statistics: "{TYPE} Statistics:"
+level: "Level: "
+experience: "Experience: "
+levelUp: "&e&lLEVEL UP!"
+levelUpSubtitle: "&eLevel {LEVEL} on {TYPE}!"

@@ -3,13 +3,15 @@ package com.civiledcode.mcmmo.commands;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
+import cn.nukkit.utils.TextFormat;
+import com.civiledcode.mcmmo.Main;
 import com.civiledcode.mcmmo.objects.PlayerDatabase;
 
 
 public class SkillCommand extends Command {
 
     public SkillCommand() {
-        super("skill", "View your statistics for a skill", "/skill <mining / combat / farming>");
+        super("skill", TextFormat.colorize(Main.lang.getString("skillDescription")), "/skill <mining / combat / farming>");
     }
 
     @Override
@@ -19,21 +21,21 @@ public class SkillCommand extends Command {
             PlayerDatabase database = new PlayerDatabase(player);
             switch (args[0]) {
                 case "mining": {
-                    player.sendMessage("Mining Statistics:");
-                    player.sendMessage("Level: " + database.getLevel(database.TYPE_MINE));
-                    player.sendMessage("Experience: " + database.getExperience(database.TYPE_MINE));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("statistics").replace("{TYPE}", "Mining")));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("level")) + database.getLevel(database.TYPE_MINE));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("experience")) + database.getExperience(database.TYPE_MINE));
                     break;
                 }
                 case "combat": {
-                    player.sendMessage("Combat Statistics:");
-                    player.sendMessage("Level: " + database.getLevel(database.TYPE_COMBAT));
-                    player.sendMessage("Experience: " + database.getExperience(database.TYPE_COMBAT));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("combatStatistics").replace("{TYPE}", "Combat")));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("level")) + database.getLevel(database.TYPE_COMBAT));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("experience")) + database.getExperience(database.TYPE_COMBAT));
                     break;
                 }
                 case "farming": {
-                    player.sendMessage("Farming Statistics:");
-                    player.sendMessage("Level: " + database.getLevel(database.TYPE_FARMING));
-                    player.sendMessage("Experience: " + database.getExperience(database.TYPE_FARMING));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("farmingStatistics").replace("{TYPE}", "Farming")));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("level")) + database.getLevel(database.TYPE_FARMING));
+                    player.sendMessage(TextFormat.colorize(Main.lang.getString("experience")) + database.getExperience(database.TYPE_FARMING));
                 }
             }
         }

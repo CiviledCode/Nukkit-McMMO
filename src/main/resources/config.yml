@@ -4,6 +4,5 @@ xpEarnedByEntity: 5
 xpEarnedByPlayer: 10
 xpEarnedByFarming: 5
 baseMiningLevelXp: 500
-baseKillingEntityLevelXp: 500
-baseKillingPlayerLevelXp: 500
+baseCombatLevelXp: 500
 baseFarmingLevelXp: 500
