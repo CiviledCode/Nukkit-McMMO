@@ -20,8 +20,8 @@ public class Combat implements Listener {
             if (entity.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK || entity.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
                 Player player = (Player) ((EntityDamageByEntityEvent) entity.getLastDamageCause()).getDamager();
                 PlayerDatabase database = new PlayerDatabase(player);
-                int updatedExperience = database.getExperienceForEntities() + Main.cfg.getInt("xpEarnedByKillingEntity");
-                database.setExperienceForEntities(updatedExperience);
+                int updatedExperience = database.getExperience(database.TYPE_MOBS) + Main.cfg.getInt("xpEarnedByKillingEntity");
+                database.setExperience(updatedExperience, database.TYPE_MOBS);
             }
         }
     }
@@ -32,8 +32,8 @@ public class Combat implements Listener {
         if (player.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK || player.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
             Player damager = (Player) ((EntityDamageByEntityEvent) player.getLastDamageCause()).getDamager();
             PlayerDatabase database = new PlayerDatabase(damager);
-            int updatedExperience = database.getExperienceForPlayers() + Main.cfg.getInt("xpEarnedByKillingPlayer");
-            database.setExperienceForPlayers(updatedExperience);
+            int updatedExperience = database.getExperience(database.TYPE_PLAYERS) + Main.cfg.getInt("xpEarnedByKillingPlayer");
+            database.setExperience(updatedExperience, database.TYPE_PLAYERS);
         }
     }
 
