@@ -15,7 +15,12 @@ public class CheckRewardsEvent implements Listener {
         Player player = event.getPlayer();
         int level = event.getLevel() + 1;
         String type = event.getType();
-        ConfigSection config = Main.cfg.getSection("triggers." + type.toLowerCase() + "." + level);
+        ConfigSection config;
+        try {
+            config = Main.cfg.getSection("triggers." + type.toLowerCase() + "." + level);
+        } catch (NullPointerException ignored) {
+            return;
+        }
         if (config != null) {
             String command = config.getString("command");
             String tip = config.getString("tip");
