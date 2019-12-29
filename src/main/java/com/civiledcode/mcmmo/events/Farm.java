@@ -19,14 +19,12 @@ public class Farm implements Listener {
         if (block instanceof BlockGrass && item.getName().contains("Hoe")) {
             Player player = event.getPlayer();
             PlayerDatabase database = new PlayerDatabase(player);
-            int updatedExperience = database.getExperience(database.TYPE_FARMING) + Main.cfg.getInt("xpEarnedByFarming");
-            database.setExperience(updatedExperience, database.TYPE_FARMING);
+            database.addExperience(Main.cfg.getInt("xpEarnedByFarming"), "Farming");
         }
         if (block instanceof BlockFarmland && item.getName().contains("Seed")) {
             Player player = event.getPlayer();
             PlayerDatabase database = new PlayerDatabase(player);
-            int updatedExperience = database.getExperience(database.TYPE_FARMING) + Main.cfg.getInt("xpEarnedByFarming");
-            database.setExperience(updatedExperience, database.TYPE_FARMING);
+            database.addExperience(Main.cfg.getInt("xpEarnedByFarming"), "Farming");
         }
     }
 
@@ -36,8 +34,7 @@ public class Farm implements Listener {
         if (block instanceof BlockCrops) {
             Player player = event.getPlayer();
             PlayerDatabase database = new PlayerDatabase(player);
-            int updatedExperience = database.getExperience(database.TYPE_FARMING) + Main.cfg.getInt("xpEarnedByFarming");
-            database.setExperience(updatedExperience, database.TYPE_FARMING);
+            database.addExperience(Main.cfg.getInt("xpEarnedByFarming"), "Farming");
         }
     }
 
