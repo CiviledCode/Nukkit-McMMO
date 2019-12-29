@@ -1,4 +1,4 @@
-package com.civiledcode.mcmmo.events;
+package com.civiledcode.mcmmo.api;
 
 
 import cn.nukkit.Player;
@@ -27,5 +27,5 @@ public class LevelUpEvent extends Event {
     public Player getPlayer() {
         return player;
     }
-    
+
 }

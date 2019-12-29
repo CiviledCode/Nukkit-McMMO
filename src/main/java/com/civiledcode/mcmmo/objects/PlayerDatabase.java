@@ -3,7 +3,7 @@ package com.civiledcode.mcmmo.objects;
 import cn.nukkit.Player;
 import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.Main;
-import com.civiledcode.mcmmo.events.LevelUpEvent;
+import com.civiledcode.mcmmo.api.LevelUpEvent;
 
 import java.sql.SQLException;
 

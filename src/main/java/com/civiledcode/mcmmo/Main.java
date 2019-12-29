@@ -5,6 +5,7 @@ import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.commands.SkillCommand;
 import com.civiledcode.mcmmo.events.BlockBreak;
+import com.civiledcode.mcmmo.events.CheckRewardsEvent;
 import com.civiledcode.mcmmo.events.Combat;
 import com.civiledcode.mcmmo.objects.Database;
 
@@ -32,9 +33,8 @@ public class Main extends PluginBase {
         cfg = getConfig();
         registerCommands();
         registerEvents();
-        registerTasks();
 
-        baseChangeAmount = this.getConfig().getDouble("baseChangeAmount");
+        baseChangeAmount = getConfig().getDouble("baseChangeAmount");
 
         database.executeUpdate("CREATE TABLE ");
     }
@@ -50,10 +50,7 @@ public class Main extends PluginBase {
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(new BlockBreak(), this);
         getServer().getPluginManager().registerEvents(new Combat(), this);
-    }
-
-    private void registerTasks() {
-        new CheckLevelTask().runTaskTimer(this, 20, 20);
+        getServer().getPluginManager().registerEvents(new CheckRewardsEvent(), this);
     }
 
     public static Database getPlayerDatabase() {

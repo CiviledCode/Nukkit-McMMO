@@ -6,3 +6,16 @@ xpEarnedByFarming: 5
 baseMiningLevelXp: 500
 baseCombatLevelXp: 500
 baseFarmingLevelXp: 500
+triggers:
+  mining:
+    10:
+      command: "effect {PLAYER} haste 2 {PERM}"
+      tip: "&eGained Haste 2 forever!"
+  combat:
+    10:
+      command: "effect {PLAYER} strength 2 {PERM}"
+      tip: "&eGained Strength 2 forever!"
+  farming:
+    10:
+      command: "give {PLAYER} 351:15 32"
+      tip: "&eGiven Bone Mea!l (32)"
