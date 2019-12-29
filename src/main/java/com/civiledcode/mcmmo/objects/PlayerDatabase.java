@@ -14,8 +14,7 @@ public class PlayerDatabase {
     }
 
     public String TYPE_MINE = "Mine";
-    public String TYPE_MOBS = "Entities";
-    public String TYPE_PLAYERS = "Players";
+    public String TYPE_COMBAT = "Combat";
     public String TYPE_FARMING = "Farming";
 
     public int getExperience(String type) {
