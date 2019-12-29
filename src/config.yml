@@ -1,5 +1,8 @@
-xpEarnedByDestroyingBlock: 1
+xpEarnedByMining: 1
 xpEarnedByKillingEntity: 5
 xpEarnedByKillingPlayer: 10
 xpEarnedByFarming: 5
-baseMiningLevelXp: 
+baseMiningLevelXp: 500
+baseKillingEntityLevelXp: 500
+baseKillingPlayerLevelXp: 500
+baseFarmingLevelXp: 500
