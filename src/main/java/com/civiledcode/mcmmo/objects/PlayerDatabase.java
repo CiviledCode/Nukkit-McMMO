@@ -35,7 +35,7 @@ public class PlayerDatabase {
 
     public void addExperience(int Experience, String type) {
         int finalAmount = getExperience(type) + Experience;
-        int neededForLevel = (int) (Main.getInstance().getConfig().getInt("xpEarnedBy" + type) * Main.baseChangeAmount * getLevel(type));
+        int neededForLevel = getExperienceNeededForNextLevel(type);
         if(finalAmount >= neededForLevel) {
             LevelUpEvent event = new LevelUpEvent(type, getLevel(type), player);
             Main.getInstance().getServer().getPluginManager().callEvent(event);
@@ -45,6 +45,10 @@ public class PlayerDatabase {
         } else {
             setExperience(finalAmount, type);
         }
+    }
+
+    public int getExperienceNeededForNextLevel(String type) {
+        return (int) (Main.getInstance().getConfig().getInt("xpEarnedBy" + type) * Main.baseChangeAmount * getLevel(type));
     }
 
     public int getLevel(String type) {
