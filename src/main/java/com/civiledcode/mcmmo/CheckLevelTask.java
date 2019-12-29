@@ -1,4 +1,4 @@
-package com.civiledcode.mcmmo.tasks;
+package com.civiledcode.mcmmo;
 
 import cn.nukkit.Player;
 import cn.nukkit.scheduler.NukkitRunnable;
