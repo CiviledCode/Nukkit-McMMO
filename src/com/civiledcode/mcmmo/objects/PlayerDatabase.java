@@ -27,4 +27,18 @@ public class PlayerDatabase {
                 "WHERE name='" + player.getName() + "');");
     }
 
+    public int getLevel() {
+        try {
+            return Main.getPlayerDatabase().executeSelect("SELECT level FROM players WHERE name='" + player.getName() + "'").getInt("experience");
+        } catch (SQLException e) {
+            return 0;
+        }
+    }
+
+    public void setLevel(int Experience) {
+        Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
+                "SET level=" + Experience + "\n" +
+                "WHERE name='" + player.getName() + "');");
+    }
+
 }
