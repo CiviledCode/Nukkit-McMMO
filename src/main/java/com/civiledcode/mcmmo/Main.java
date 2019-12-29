@@ -16,12 +16,15 @@ public class Main extends PluginBase {
 
     public static Config cfg;
 
+    public static Config lang;
+
     public static Main getInstance() {
         return instance;
     }
 
     public void onEnable() {
-        getLogger().info(TextFormat.colorize("&aMc&eMMO has now started."));
+        lang = new Config("lang.yml");
+        getLogger().info(TextFormat.colorize(lang.getString("bootMessage")));
         instance = this;
         database = new Database("playerData");
         cfg = getConfig();
@@ -31,7 +34,7 @@ public class Main extends PluginBase {
     }
 
     public void onDisable() {
-        getLogger().info(TextFormat.colorize("&aMc&eMMO is now shutting down."));
+        getLogger().info(TextFormat.colorize(lang.getString("shutdownMessage")));
     }
 
     private void registerCommands() {
