@@ -35,9 +35,9 @@ public class PlayerDatabase {
         }
     }
 
-    public void setLevelForMining(int Experience) {
+    public void setLevelForMining(int level) {
         Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
-                "SET levelMine=" + Experience + "\n" +
+                "SET levelMine=" + level + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }
 
@@ -63,9 +63,9 @@ public class PlayerDatabase {
         }
     }
 
-    public void setLevelForEntities(int Experience) {
+    public void setLevelForEntities(int level) {
         Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
-                "SET levelEntities=" + Experience + "\n" +
+                "SET levelEntities=" + level + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }
 
@@ -91,9 +91,9 @@ public class PlayerDatabase {
         }
     }
 
-    public void setLevelForPlayers(int Experience) {
+    public void setLevelForPlayers(int level) {
         Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
-                "SET levelPlayers=" + Experience + "\n" +
+                "SET levelPlayers=" + level + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }
 
@@ -119,9 +119,9 @@ public class PlayerDatabase {
         }
     }
 
-    public void setLevelForFarming(int Experience) {
+    public void setLevelForFarming(int level) {
         Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
-                "SET levelFarming=" + Experience + "\n" +
+                "SET levelFarming=" + level + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }
 
