@@ -18,6 +18,8 @@ public class Main extends PluginBase {
 
     public static Config lang;
 
+    public static double baseChangeAmount;
+
     public static Main getInstance() {
         return instance;
     }
@@ -31,6 +33,10 @@ public class Main extends PluginBase {
         registerCommands();
         registerEvents();
         registerTasks();
+
+        baseChangeAmount = this.getConfig().getDouble("baseChangeAmount");
+
+        database.executeUpdate("CREATE TABLE ");
     }
 
     public void onDisable() {
