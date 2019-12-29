@@ -18,4 +18,4 @@ triggers:
   farming:
     10:
       command: "give {PLAYER} 351:15 32"
-      tip: "&eGiven Bone Mea!l (32)"
+      tip: "&eGiven Bone Meal! (32)"
