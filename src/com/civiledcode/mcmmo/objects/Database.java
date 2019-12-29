@@ -1,0 +1,48 @@
+package com.civiledcode.mcmmo.objects;
+
+import com.civiledcode.mcmmo.Main;
+
+import java.io.File;
+import java.sql.*;
+
+public class Database {
+
+    private String url;
+    private Connection connection;
+
+    public Database(String name) {
+        url = Main.getInstance().getDataFolder().getAbsolutePath() + "/" + name + ".db";
+        try {
+            Class.forName("org.sqlite.JDBC");
+            if(!new File(url).exists()) {
+                new File(url).createNewFile();
+            }
+            connection = DriverManager.getConnection("jdbc:sqlite:" + url);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void executeUpdate(String query) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(query);
+            stmt.close();
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet executeSelect(String query) {
+        ResultSet set = null;
+        try {
+            Statement stmt = connection.createStatement();
+            set = stmt.executeQuery(query);
+            stmt.close();
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return set;
+    }
+
+}
