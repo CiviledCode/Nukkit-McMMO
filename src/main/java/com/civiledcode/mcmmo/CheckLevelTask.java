@@ -11,8 +11,8 @@ public class CheckLevelTask extends NukkitRunnable {
     public void run() {
         for (Player player : Main.getInstance().getServer().getOnlinePlayers().values()) {
             PlayerDatabase database = new PlayerDatabase(player);
-            int xpForMining = database.getExperienceForMining();
-            int xpForEntities = database.getExperienceForEntities();
+            int xpForMining = database.getExperience("Mining");
+            int xpForEntities = database.getExperience("Combat");
 
         }
     }
