@@ -26,17 +26,16 @@ public class Main extends PluginBase {
     }
 
     public void onEnable() {
-        lang = new Config("lang.yml");
-        getLogger().info(TextFormat.colorize(lang.getString("bootMessage")));
         instance = this;
         database = new Database("playerData");
         cfg = getConfig();
+        lang = new Config("lang.yml");
+        getLogger().info(TextFormat.colorize(lang.getString("bootMessage")));
+        initializeDatabase();
         registerCommands();
         registerEvents();
 
         baseChangeAmount = getConfig().getDouble("baseChangeAmount");
-
-        database.executeUpdate("CREATE TABLE ");
     }
 
     public void onDisable() {
@@ -55,6 +54,17 @@ public class Main extends PluginBase {
 
     public static Database getPlayerDatabase() {
         return database;
+    }
+
+    private void initializeDatabase() {
+        database.executeUpdate("CREATE table IF NOT EXISTS players (\n" +
+                "  name text PRIMARY KEY NOT NULL, \n" +
+                "  experienceMine integer NOT NULL,\n" +
+                "  experienceCombat integer NOT NULL,\n" +
+                "  experienceFarming integer NOT NULL,\n" +
+                "  levelMine integer NOT NULL,\n" +
+                "  levelCombat integer NOT NULL,\n" +
+                "  levelFarming integer NOT NULL);");
     }
 
 }

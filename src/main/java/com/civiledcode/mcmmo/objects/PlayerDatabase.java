@@ -61,5 +61,4 @@ public class PlayerDatabase {
                 "WHERE name='" + player.getName() + "');");
     }
 
-
 }
