@@ -16,17 +16,17 @@ public class Mining implements Listener {
         Player player = event.getPlayer();
         PlayerDatabase database = new PlayerDatabase(player);
         if (block instanceof BlockStone) {
-            database.addExperience(Main.cfg.getInt("xpEarnedByMine"), "Mine");
+            database.addExperience(Main.cfg.getInt("xpEarnedByMining"), "Mining");
         } else if (block instanceof BlockOreCoal) {
-            database.addExperience(Main.cfg.getInt("xpEarnedByMine") * 2, "Mine");
+            database.addExperience(Main.cfg.getInt("xpEarnedByMining") * 2, "Mining");
         } else if (block instanceof BlockOreIron) {
-            database.addExperience(Main.cfg.getInt("xpEarnedByMine") * 3, "Mine");
+            database.addExperience(Main.cfg.getInt("xpEarnedByMining") * 3, "Mining");
         } else if (block instanceof BlockOreGold) {
-            database.addExperience(Main.cfg.getInt("xpEarnedByMine") * 4, "Mine");
+            database.addExperience(Main.cfg.getInt("xpEarnedByMining") * 4, "Mining");
         } else if (block instanceof BlockOreDiamond) {
-            database.addExperience(Main.cfg.getInt("xpEarnedByMine") * 5, "Mine");
+            database.addExperience(Main.cfg.getInt("xpEarnedByMining") * 5, "Mining");
         } else if (block instanceof BlockOreEmerald) {
-            database.addExperience(Main.cfg.getInt("xpEarnedByMine") * 6, "Mine");
+            database.addExperience(Main.cfg.getInt("xpEarnedByMining") * 6, "Mining");
         }
     }
 

@@ -15,9 +15,14 @@ public class PlayerDatabase {
         this.player = player;
     }
 
-    public String TYPE_MINE = "Mine";
-    public String TYPE_COMBAT = "Combat";
+    public String TYPE_ACROBATICS = "Acrobatics";
+    public String TYPE_ARCHERY = "Archery";
+    public String TYPE_EXCAVATION = "Excavation";
     public String TYPE_FARMING = "Farming";
+    public String TYPE_MINING = "Mining";
+    public String TYPE_SWORDS = "Swords";
+    public String TYPE_UNARMED = "Unarmed";
+    public String TYPE_WOODCUTTING = "Woodcutting";
 
     public int getExperience(String type) {
         return Main.getPlayerDatabase().getInt("SELECT experience" + type + " FROM players WHERE name='" + player.getName() + "'", "experience" + type);

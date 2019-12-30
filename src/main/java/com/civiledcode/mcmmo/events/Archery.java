@@ -6,6 +6,8 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
+import com.civiledcode.mcmmo.Main;
+import com.civiledcode.mcmmo.objects.PlayerDatabase;
 
 public class Archery implements Listener {
 
@@ -15,7 +17,8 @@ public class Archery implements Listener {
             if (event.getEntity().getLastDamageCause() instanceof EntityDamageByEntityEvent) {
                 Entity damager = ((EntityDamageByEntityEvent) event.getEntity().getLastDamageCause()).getDamager();
                 if (damager instanceof Player) {
-                    // TODO: Add XP for Archery
+                    PlayerDatabase database = new PlayerDatabase((Player) damager);
+                    database.addExperience(Main.cfg.getInt("xpEarnedByArchery"), "Archery");
                 }
             }
         }

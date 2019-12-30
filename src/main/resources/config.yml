@@ -1,21 +1,27 @@
 baseChangeAmount: 1.1
-xpEarnedByMine: 1
-xpEarnedByEntity: 5
-xpEarnedByPlayer: 10
+xpEarnedByAcrobatics: 1
+xpEarnedByArchery: 5
+xpEarnedByExcavation: 1
 xpEarnedByFarming: 5
+xpEarnedByMining: 1
+xpEarnedBySwords: 5
+xpEarnedByUnarmed: 5
+xpEarnedByWoodcutting: 1
 baseMineLevelXp: 500
 baseCombatLevelXp: 500
 baseFarmingLevelXp: 500
-skillMiningImageURL: "https://gamepedia.cursecdn.com/minecraft_gamepedia/thumb/5/54/Diamond_Pickaxe.png/150px-Diamond_Pickaxe.png?version=5f362d91733ae2067afea0dfcf6afcb3"
-skillCombatImageURL: "https://gamepedia.cursecdn.com/minecraft_gamepedia/a/a8/Golden_Sword.png?version=26dac22697938b284c402f7b08267b71"
-skillFarmingImageURL: "https://gamepedia.cursecdn.com/minecraft_gamepedia/thumb/4/4d/Iron_Hoe.png/150px-Iron_Hoe.png?version=2cdedb8339795d911193d579cfa4b8ad"
-mine-3: # On Mine Level 3
+skillAcrobaticsImageURL: ""
+skillArcheryImageURL: ""
+skillExcavationImageURL: ""
+skillFarmingImageURL: ""
+skillMiningImageURL: ""
+skillSwordsImageURL: ""
+skillUnarmedImageURL: ""
+skillWoodcuttingImageURL: ""
+mining-3: # On Mining Level 3
   command: "effect {PLAYER} haste {PERM} 2"
   tip: "&eGained Haste 2 forever!"
-mine-2: # On Mine Level 2
-  command: "effect {PLAYER} haste 60 2"
-  tip: "&eGained Haste 2 for a minute!"
-combat-10: # On Combat Level 10
+swords-5: # On Swords Level 10
   command: "effect {PLAYER} strength {PERM} 2"
   tip: "&eGained Strength 2 forever!"
 farming-10: # On Farming Level 10

@@ -1,17 +1,23 @@
 package com.civiledcode.mcmmo.events;
 
+import cn.nukkit.Player;
+import cn.nukkit.block.Block;
+import cn.nukkit.block.BlockDirt;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockBreakEvent;
-import cn.nukkit.item.Item;
+import com.civiledcode.mcmmo.Main;
+import com.civiledcode.mcmmo.objects.PlayerDatabase;
 
 public class Excavation implements Listener {
 
     @EventHandler
     public void onDestroyWithShovel(BlockBreakEvent event) {
-        Item item = event.getItem();
-        if (item.isShovel()) {
-            // TODO: Add XP for Excavation
+        Block block = event.getBlock();
+        if (block instanceof BlockDirt) {
+            Player player = event.getPlayer();
+            PlayerDatabase database = new PlayerDatabase(player);
+            database.addExperience(Main.cfg.getInt("xpEarnedByExcavation"), "Excavation");
         }
     }
 
