@@ -50,7 +50,6 @@ public class Database {
             if (!connection.isClosed()) {
                 Statement stmt = connection.createStatement();
                 ResultSet set = stmt.executeQuery(query);
-                Main.getInstance().getLogger().info(set.getInt(name) + "");
                 int p = set.getInt(name);
                 stmt.close();
                 return p;

@@ -13,7 +13,6 @@ public class LevelUpEvent extends Event {
         return handlers;
     }
 
-
     private String type;
     private int level;
     private Player player;
