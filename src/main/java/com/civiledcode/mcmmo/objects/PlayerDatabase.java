@@ -28,7 +28,7 @@ public class PlayerDatabase {
     }
 
     public void setExperience(int Experience, String type) {
-        Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
+        Main.getPlayerDatabase().executeUpdate("UPDATE players(\n" +
                 "SET experience" + type + "=" + Experience + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }
@@ -60,7 +60,7 @@ public class PlayerDatabase {
     }
 
     public void setLevel(int level, String type) {
-        Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
+        Main.getPlayerDatabase().executeUpdate("UPDATE players(\n" +
                 "SET level" + type + "=" + level + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }
