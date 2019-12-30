@@ -49,6 +49,7 @@ public class SkillCommand extends Command {
             }
             return true;
         } catch (ArrayIndexOutOfBoundsException e) {
+            sender.sendMessage("Usage: /skill <mining / combat / farming>");
             return false;
         }
     }
