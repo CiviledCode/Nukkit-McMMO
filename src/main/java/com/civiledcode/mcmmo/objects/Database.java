@@ -14,10 +14,10 @@ public class Database {
         url = Main.getInstance().getDataFolder().getAbsolutePath() + File.separator + name + ".db";
         try {
             Class.forName("org.sqlite.JDBC");
-            if(!new File(url).exists()) {
-                new File(url).createNewFile();
-            }
+            Main.getInstance().getLogger().info(url);
+            new File(url).createNewFile();
             connection = DriverManager.getConnection("jdbc:sqlite:" + url);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
