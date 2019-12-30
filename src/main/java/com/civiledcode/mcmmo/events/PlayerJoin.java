@@ -10,7 +10,7 @@ public class PlayerJoin implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Main.getPlayerDatabase().executeUpdate("INSERT INTO players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
-                "  'CiviledYT',\n" +
+                "  '" + event.getPlayer().getName() + "',\n" +
                 "  '0',\n" +
                 "  '0',\n" +
                 "  '0',\n" +
