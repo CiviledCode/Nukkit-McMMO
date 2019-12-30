@@ -28,8 +28,10 @@ public class Main extends PluginBase {
     public void onEnable() {
         instance = this;
         database = new Database("playerData");
+        saveDefaultConfig();
+        saveResource("lang.yml");
         cfg = getConfig();
-        lang = new Config("lang.yml");
+        lang = new Config(getDataFolder() + "/lang.yml", Config.YAML);
         getLogger().info(TextFormat.colorize(lang.getString("bootMessage")));
         initializeDatabase();
         registerCommands();
@@ -40,6 +42,8 @@ public class Main extends PluginBase {
 
     public void onDisable() {
         getLogger().info(TextFormat.colorize(lang.getString("shutdownMessage")));
+        saveDefaultConfig();
+        saveResource("lang.yml");
     }
 
     private void registerCommands() {
