@@ -11,9 +11,7 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        if(Main.getPlayerDatabase().executeSelect("SELECT * FROM players WHERE name='" + event.getPlayer().getName() + "'") == null) {
-            Main.getInstance().getLogger().info("Creating new DB entry for " + event.getPlayer().getName());
-            Main.getPlayerDatabase().executeUpdate("INSERT INTO players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
+            Main.getPlayerDatabase().executeUpdate("INSERT INTO IF NOT EXISTS players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
                     "  '" + event.getPlayer().getName() + "',\n" +
                     "  '0',\n" +
                     "  '0',\n" +
@@ -27,7 +25,6 @@ public class PlayerJoin implements Listener {
             } catch(SQLException e) {
                 e.printStackTrace();
             }
-        }
     }
 
 }
