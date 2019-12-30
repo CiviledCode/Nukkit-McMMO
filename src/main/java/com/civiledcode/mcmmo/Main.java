@@ -61,14 +61,14 @@ public class Main extends PluginBase {
     }
 
     private void initializeDatabase() {
-        database.executeUpdate("CREATE TABLE players IF NOT EXISTS(\n" +
-                "  name text PRIMARY KEY NOT NULL, \n" +
-                "  experienceMine integer NOT NULL,\n" +
-                "  experienceCombat integer NOT NULL,\n" +
-                "  experienceFarming integer NOT NULL,\n" +
-                "  levelMine integer NOT NULL,\n" +
-                "  levelCombat integer NOT NULL,\n" +
-                "  levelFarming integer NOT NULL);");
+        database.executeUpdate("CREATE TABLE IF NOT EXISTS players (\n" +
+                "name text PRIMARY KEY NOT NULL,\n" +
+                "experienceMine integer NOT NULL,\n" +
+                "experienceCombat integer NOT NULL,\n" +
+                "experienceFarming integer NOT NULL,\n" +
+                "levelMine integer NOT NULL,\n" +
+                "levelCombat integer NOT NULL,\n" +
+                "levelFarming integer NOT NULL)");
     }
 
 }
