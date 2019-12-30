@@ -50,12 +50,15 @@ public class Database {
             if (!connection.isClosed()) {
                 Statement stmt = connection.createStatement();
                 ResultSet set = stmt.executeQuery(query);
+                if(set.isClosed()) {
+                    Main.getInstance().getLogger().info("Unexpected dropped query. This is not an error");
+                    return -1;
+                }
                 int p = set.getInt(name);
                 stmt.close();
                 return p;
             }
         } catch(SQLException e) {
-            e.printStackTrace();
             return -1;
         }
         return -1;
