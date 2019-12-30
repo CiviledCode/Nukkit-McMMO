@@ -1,5 +1,8 @@
 package com.civiledcode.mcmmo;
 
+import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.Listener;
+import cn.nukkit.event.player.PlayerFormRespondedEvent;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
@@ -9,10 +12,11 @@ import com.civiledcode.mcmmo.events.CheckRewardsEvent;
 import com.civiledcode.mcmmo.events.Combat;
 import com.civiledcode.mcmmo.events.PlayerJoin;
 import com.civiledcode.mcmmo.objects.Database;
+import com.civiledcode.mcmmo.form.Screen;
 
 import java.io.File;
 
-public class Main extends PluginBase {
+public class Main extends PluginBase implements Listener {
 
     private static Main instance;
 
@@ -54,6 +58,7 @@ public class Main extends PluginBase {
     }
 
     private void registerEvents() {
+        getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new BlockBreak(), this);
         getServer().getPluginManager().registerEvents(new Combat(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
@@ -73,6 +78,14 @@ public class Main extends PluginBase {
                 "  levelMine integer NOT NULL,\n" +
                 "  levelCombat integer NOT NULL,\n" +
                 "  levelFarming integer NOT NULL);");
+    }
+
+
+    @EventHandler
+    public void onFormResponse(PlayerFormRespondedEvent event) {
+        if (event.getResponse() == null) return;
+        if (!(event.getWindow() instanceof Screen)) return;
+        ((Screen)event.getWindow()).onResponse(event);
     }
 
 }

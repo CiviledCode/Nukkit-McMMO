@@ -6,15 +6,15 @@ xpEarnedByFarming: 5
 baseMineLevelXp: 500
 baseCombatLevelXp: 500
 baseFarmingLevelXp: 500
-mining:
-  3:
-    command: "effect {PLAYER} haste {PERM} 2"
-    tip: "&eGained Haste 2 forever!"
-combat:
-  10:
-    command: "effect {PLAYER} strength {PERM} 2"
-    tip: "&eGained Strength 2 forever!"
-farming:
-  10:
-    command: "give {PLAYER} 351:15 32"
-    tip: "&eGiven Bone Meal! (32)"
+mine-3: // On Mine Level 3
+  command: "effect {PLAYER} haste {PERM} 2"
+  tip: "&eGained Haste 2 forever!"
+mine-2: // On Mine Level 2
+  command: "effect {PLAYER} haste 60 2"
+  tip: "&eGained Haste 2 for a minute!"
+combat-10: // On Combat Level 10
+  command: "effect {PLAYER} strength {PERM} 2"
+  tip: "&eGained Strength 2 forever!"
+farming-10: // On Farming Level 10
+  command: "give {PLAYER} 351:15 32"
+  tip: "&eGiven Bone Meal! (32)"
