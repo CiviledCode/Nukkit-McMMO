@@ -27,7 +27,7 @@ public class Main extends PluginBase {
 
     public void onEnable() {
         instance = this;
-        database = new Database("playerData");
+        database = new Database("database");
         saveDefaultConfig();
         saveResource("lang.yml");
         cfg = getConfig();
@@ -61,7 +61,7 @@ public class Main extends PluginBase {
     }
 
     private void initializeDatabase() {
-        database.executeUpdate("CREATE TABLE players IF NOT EXISTS(\n" +
+        database.executeUpdate("CREATE table IF NOT EXISTS players (\n" +
                 "  name text PRIMARY KEY NOT NULL, \n" +
                 "  experienceMine integer NOT NULL,\n" +
                 "  experienceCombat integer NOT NULL,\n" +
