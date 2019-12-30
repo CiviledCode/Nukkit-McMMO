@@ -12,14 +12,14 @@ public class Database {
 
     public Database(String name) {
         url = Main.getInstance().getDataFolder().getAbsolutePath() + File.separator + name + ".db";
+        Main.getInstance().getLogger().info(url);
         try {
             Class.forName("org.sqlite.JDBC");
-            Main.getInstance().getLogger().info(url);
             new File(url).createNewFile();
             connection = DriverManager.getConnection("jdbc:sqlite:" + url);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
