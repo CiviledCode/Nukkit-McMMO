@@ -3,7 +3,7 @@ xpEarnedByMine: 1
 xpEarnedByEntity: 5
 xpEarnedByPlayer: 10
 xpEarnedByFarming: 5
-baseMiningLevelXp: 500
+baseMineLevelXp: 500
 baseCombatLevelXp: 500
 baseFarmingLevelXp: 500
 triggers:

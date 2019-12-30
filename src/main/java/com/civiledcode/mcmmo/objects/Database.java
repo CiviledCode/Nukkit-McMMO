@@ -45,4 +45,21 @@ public class Database {
         return set;
     }
 
+    public int getInt(String query, String name) {
+        try {
+            if (!connection.isClosed()) {
+                Statement stmt = connection.createStatement();
+                ResultSet set = stmt.executeQuery(query);
+                Main.getInstance().getLogger().info(set.getInt(name) + "");
+                int p = set.getInt(name);
+                stmt.close();
+                return p;
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return -1;
+    }
+
 }

@@ -20,11 +20,7 @@ public class PlayerDatabase {
     public String TYPE_FARMING = "Farming";
 
     public int getExperience(String type) {
-        try {
-            return Main.getPlayerDatabase().executeSelect("SELECT experience" + type + " FROM players WHERE name='" + player.getName() + "'").getInt("experience" + type);
-        } catch (SQLException e) {
-            return 0;
-        }
+        return Main.getPlayerDatabase().getInt("SELECT experience" + type + " FROM players WHERE name='" + player.getName() + "'", "experience" + type);
     }
 
     public void setExperience(int Experience, String type) {
@@ -48,15 +44,11 @@ public class PlayerDatabase {
     }
 
     public int getExperienceNeededForNextLevel(String type) {
-        return (int) (Main.getInstance().getConfig().getInt("xpEarnedBy" + type) * Math.pow(Main.baseChangeAmount, getLevel(type)));
+        return (int) (Main.getInstance().getConfig().getInt("base" + type + "LevelXp") * Math.pow(Main.baseChangeAmount, getLevel(type)));
     }
 
     public int getLevel(String type) {
-        try {
-            return Main.getPlayerDatabase().executeSelect("SELECT level" + type + " FROM players WHERE name='" + player.getName() + "'").getInt("level" + type);
-        } catch (SQLException e) {
-            return 0;
-        }
+        return Main.getPlayerDatabase().getInt("SELECT level" + type + " FROM players WHERE name='" + player.getName() + "'", "level" + type);
     }
 
     public void setLevel(int level, String type) {
