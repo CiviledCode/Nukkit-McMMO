@@ -10,6 +10,8 @@ import com.civiledcode.mcmmo.events.Combat;
 import com.civiledcode.mcmmo.events.PlayerJoin;
 import com.civiledcode.mcmmo.objects.Database;
 
+import java.io.File;
+
 public class Main extends PluginBase {
 
     private static Main instance;
@@ -32,7 +34,7 @@ public class Main extends PluginBase {
         saveDefaultConfig();
         saveResource("lang.yml");
         cfg = getConfig();
-        lang = new Config(getDataFolder() + "/lang.yml", Config.YAML);
+        lang = new Config(getDataFolder() + File.separator + "lang.yml", Config.YAML);
         getLogger().info(TextFormat.colorize(lang.getString("bootMessage")));
         initializeDatabase();
         registerCommands();
