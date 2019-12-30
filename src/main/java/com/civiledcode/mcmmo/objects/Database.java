@@ -40,7 +40,7 @@ public class Database {
             set = stmt.executeQuery(query);
             stmt.close();
         } catch(SQLException e) {
-            e.printStackTrace();
+            return null;
         }
         return set;
     }
