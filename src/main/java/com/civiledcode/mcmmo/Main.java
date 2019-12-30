@@ -53,7 +53,6 @@ public class Main extends PluginBase {
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(new BlockBreak(), this);
         getServer().getPluginManager().registerEvents(new Combat(), this);
-        getServer().getPluginManager().registerEvents(new CheckRewardsEvent(), this);
     }
 
     public static Database getPlayerDatabase() {
