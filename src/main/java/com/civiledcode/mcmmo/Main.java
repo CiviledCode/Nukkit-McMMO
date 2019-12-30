@@ -7,9 +7,7 @@ import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.commands.SkillCommand;
-import com.civiledcode.mcmmo.events.Mining;
-import com.civiledcode.mcmmo.events.CheckRewardsEvent;
-import com.civiledcode.mcmmo.events.PlayerJoin;
+import com.civiledcode.mcmmo.events.*;
 import com.civiledcode.mcmmo.objects.Database;
 import com.civiledcode.mcmmo.form.Screen;
 
@@ -58,9 +56,18 @@ public class Main extends PluginBase implements Listener {
 
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(this, this);
-        getServer().getPluginManager().registerEvents(new Mining(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new CheckRewardsEvent(), this);
+
+        // Skill Events
+        getServer().getPluginManager().registerEvents(new Acrobatics(), this);
+        getServer().getPluginManager().registerEvents(new Archery(), this);
+        getServer().getPluginManager().registerEvents(new Excavation(), this);
+        getServer().getPluginManager().registerEvents(new Farming(), this);
+        getServer().getPluginManager().registerEvents(new Mining(), this);
+        getServer().getPluginManager().registerEvents(new Swords(), this);
+        getServer().getPluginManager().registerEvents(new Unarmed(), this);
+        getServer().getPluginManager().registerEvents(new Woodcutting(), this);
     }
 
     public static Database getPlayerDatabase() {
