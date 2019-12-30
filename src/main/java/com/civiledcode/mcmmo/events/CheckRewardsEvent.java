@@ -3,6 +3,7 @@ package com.civiledcode.mcmmo.events;
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
+import cn.nukkit.utils.Config;
 import cn.nukkit.utils.ConfigSection;
 import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.Main;
@@ -15,17 +16,13 @@ public class CheckRewardsEvent implements Listener {
         Player player = event.getPlayer();
         int level = event.getLevel() + 1;
         String type = event.getType();
-        ConfigSection config;
-        try {
-            config = Main.cfg.getSection("triggers." + type.toLowerCase() + "." + level);
-        } catch (NullPointerException ignored) {
-            return;
-        }
-        if (config != null) {
-            String command = config.getString("command");
-            String tip = config.getString("tip");
-            if (command.length() > 2) Main.getInstance().getServer().dispatchCommand(Main.getInstance().getServer().getConsoleSender(), command.replace("{PLAYER}", player.getName()).replace("{PERM}", "999999"));
-            if (tip.length() > 2) player.sendTitle(TextFormat.colorize(tip));
+        Config config = Main.cfg;
+        ConfigSection cs = config.getSection(type.toLowerCase() + "-" + level);
+        String command = cs.getString("command");
+        String tip = cs.getString("tip");
+        if (command.length() > 2 && tip.length() > 2) {
+            Main.getInstance().getServer().dispatchCommand(Main.getInstance().getServer().getConsoleSender(), command.replace("{PLAYER}", player.getName()).replace("{PERM}", "999999"));
+            player.sendActionBar(TextFormat.colorize(tip));
         }
     }
 
