@@ -77,14 +77,23 @@ public class Main extends PluginBase implements Listener {
     private void initializeDatabase() {
         database.executeUpdate("CREATE table IF NOT EXISTS players (\n" +
                 "  name text PRIMARY KEY NOT NULL, \n" +
-                "  experienceMine integer NOT NULL,\n" +
-                "  experienceCombat integer NOT NULL,\n" +
+                "  experienceAcrobatics integer NOT NULL,\n" +
+                "  experienceArchery integer NOT NULL,\n" +
+                "  experienceExcavation integer NOT NULL,\n" +
                 "  experienceFarming integer NOT NULL,\n" +
-                "  levelMine integer NOT NULL,\n" +
-                "  levelCombat integer NOT NULL,\n" +
-                "  levelFarming integer NOT NULL);");
+                "  experienceMining integer NOT NULL,\n" +
+                "  experienceSwords integer NOT NULL,\n" +
+                "  experienceUnarmed integer NOT NULL,\n" +
+                "  experienceWoodcutting integer NOT NULL,\n" +
+                "  levelAcrobatics integer NOT NULL,\n" +
+                "  levelArchery integer NOT NULL,\n" +
+                "  levelExcavation integer NOT NULL,\n" +
+                "  levelFarming integer NOT NULL,\n" +
+                "  levelMining integer NOT NULL,\n" +
+                "  levelSwords integer NOT NULL,\n" +
+                "  levelUnarmed integer NOT NULL,\n" +
+                "  levelWoodcutting integer NOT NULL);");
     }
-
 
     @EventHandler
     public void onFormResponse(PlayerFormRespondedEvent event) {
