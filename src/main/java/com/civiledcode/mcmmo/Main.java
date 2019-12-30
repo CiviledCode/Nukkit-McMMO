@@ -61,7 +61,7 @@ public class Main extends PluginBase {
     }
 
     private void initializeDatabase() {
-        database.executeUpdate("CREATE table IF NOT EXISTS players (\n" +
+        database.executeUpdate("CREATE TABLE players IF NOT EXISTS(\n" +
                 "  name text PRIMARY KEY NOT NULL, \n" +
                 "  experienceMine integer NOT NULL,\n" +
                 "  experienceCombat integer NOT NULL,\n" +
