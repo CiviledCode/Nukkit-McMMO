@@ -8,8 +8,6 @@ import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.Main;
 import com.civiledcode.mcmmo.api.LevelUpEvent;
 
-import java.util.Arrays;
-
 public class CheckRewardsEvent implements Listener {
 
     @EventHandler
@@ -26,8 +24,8 @@ public class CheckRewardsEvent implements Listener {
         if (config != null) {
             String command = config.getString("command");
             String tip = config.getString("tip");
-            if (Arrays.toString(command.getBytes()).equals("[]")) Main.getInstance().getServer().dispatchCommand(Main.getInstance().getServer().getConsoleSender(), command.replace("{PLAYER}", player.getName()).replace("{PERM}", "999999"));
-            if (Arrays.toString(tip.getBytes()).equals("[]")) player.sendTitle(TextFormat.colorize(tip));
+            if (command.length() > 2) Main.getInstance().getServer().dispatchCommand(Main.getInstance().getServer().getConsoleSender(), command.replace("{PLAYER}", player.getName()).replace("{PERM}", "999999"));
+            if (tip.length() > 2) player.sendTitle(TextFormat.colorize(tip));
         }
     }
 
