@@ -11,7 +11,7 @@ public class Database {
     private Connection connection;
 
     public Database(String name) {
-        url = Main.getInstance().getDataFolder().getAbsolutePath() + "/" + name + ".db";
+        url = Main.getInstance().getDataFolder().getAbsolutePath() + File.separator + name + ".db";
         try {
             Class.forName("org.sqlite.JDBC");
             if(!new File(url).exists()) {
