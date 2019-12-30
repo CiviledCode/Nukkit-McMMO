@@ -21,14 +21,14 @@ public class PlayerDatabase {
 
     public int getExperience(String type) {
         try {
-            return Main.getPlayerDatabase().executeSelect("SELECT experience" + type + "FROM players WHERE name='" + player.getName() + "'").getInt("experience" + type);
+            return Main.getPlayerDatabase().executeSelect("SELECT experience" + type + " FROM players WHERE name='" + player.getName() + "'").getInt("experience" + type);
         } catch (SQLException e) {
             return 0;
         }
     }
 
     public void setExperience(int Experience, String type) {
-        Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
+        Main.getPlayerDatabase().executeUpdate("UPDATE players(\n" +
                 "SET experience" + type + "=" + Experience + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }
@@ -53,14 +53,14 @@ public class PlayerDatabase {
 
     public int getLevel(String type) {
         try {
-            return Main.getPlayerDatabase().executeSelect("SELECT level" + type + "FROM players WHERE name='" + player.getName() + "'").getInt("level" + type);
+            return Main.getPlayerDatabase().executeSelect("SELECT level" + type + " FROM players WHERE name='" + player.getName() + "'").getInt("level" + type);
         } catch (SQLException e) {
             return 0;
         }
     }
 
     public void setLevel(int level, String type) {
-        Main.getPlayerDatabase().executeUpdate("UPDATE players\n" +
+        Main.getPlayerDatabase().executeUpdate("UPDATE players(\n" +
                 "SET level" + type + "=" + level + "\n" +
                 "WHERE name='" + player.getName() + "');");
     }

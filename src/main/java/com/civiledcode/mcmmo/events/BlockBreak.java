@@ -17,7 +17,7 @@ public class BlockBreak implements Listener {
         if (block instanceof BlockStone) {
             Player player = event.getPlayer();
             PlayerDatabase database = new PlayerDatabase(player);
-            database.addExperience(Main.cfg.getInt("xpEarnedByMining"), "Mining");
+            database.addExperience(Main.cfg.getInt("xpEarnedByMining"), "Mine");
         }
     }
 

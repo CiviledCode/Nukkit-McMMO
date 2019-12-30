@@ -6,11 +6,18 @@ import cn.nukkit.event.player.PlayerJoinEvent;
 import com.civiledcode.mcmmo.Main;
 
 public class PlayerJoin implements Listener {
+
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-
-        if(Main.getPlayerDatabase().executeSelect("SELECT * FROM players WHERE name='" + event.getPlayer().getName() + "'") == null) {
-            Main.getPlayerDatabase().executeUpdate("INSERT INTO players (name, experiencemineine, experiencecombat, experiencefarming, levelmine, levelcombat, levelfarming) VALUES ('"+event.getPlayer().getName()+"',0,0,0,0,0,0)");
-        }
+        Main.getPlayerDatabase().executeUpdate("INSERT INTO players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
+                "  'CiviledYT',\n" +
+                "  '0',\n" +
+                "  '0',\n" +
+                "  '0',\n" +
+                "  '0',\n" +
+                "  '0',\n" +
+                "  '0'\n" +
+                ");");
     }
+
 }
