@@ -9,15 +9,17 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        Main.getPlayerDatabase().executeUpdate("INSERT INTO players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
-                "  '" + event.getPlayer().getName() + "',\n" +
-                "  '0',\n" +
-                "  '0',\n" +
-                "  '0',\n" +
-                "  '0',\n" +
-                "  '0',\n" +
-                "  '0'\n" +
-                ");");
+        if(Main.getPlayerDatabase().executeSelect("SELECT * FROM players WHERE name='" + event.getPlayer().getName() + "'") == null) {
+            Main.getPlayerDatabase().executeUpdate("INSERT INTO players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
+                    "  '" + event.getPlayer().getName() + "',\n" +
+                    "  '0',\n" +
+                    "  '0',\n" +
+                    "  '0',\n" +
+                    "  '1',\n" +
+                    "  '1',\n" +
+                    "  '1'\n" +
+                    ");");
+        }
     }
 
 }

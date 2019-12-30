@@ -48,7 +48,7 @@ public class PlayerDatabase {
     }
 
     public int getExperienceNeededForNextLevel(String type) {
-        return (int) (Main.getInstance().getConfig().getInt("xpEarnedBy" + type) * (Main.baseChangeAmount * (getLevel(type) + 1)));
+        return (int) (Main.getInstance().getConfig().getInt("xpEarnedBy" + type) * Math.pow(Main.baseChangeAmount, getLevel(type)));
     }
 
     public int getLevel(String type) {
