@@ -8,7 +8,7 @@ import cn.nukkit.event.block.BlockBreakEvent;
 import com.civiledcode.mcmmo.Main;
 import com.civiledcode.mcmmo.objects.PlayerDatabase;
 
-public class BlockBreak implements Listener {
+public class Mining implements Listener {
 
     @EventHandler
     public void onBreak(BlockBreakEvent event) {

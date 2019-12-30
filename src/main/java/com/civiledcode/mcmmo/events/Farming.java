@@ -10,7 +10,7 @@ import cn.nukkit.item.Item;
 import com.civiledcode.mcmmo.Main;
 import com.civiledcode.mcmmo.objects.PlayerDatabase;
 
-public class Farm implements Listener {
+public class Farming implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {

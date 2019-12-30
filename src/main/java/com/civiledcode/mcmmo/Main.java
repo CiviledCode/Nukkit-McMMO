@@ -7,7 +7,7 @@ import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.commands.SkillCommand;
-import com.civiledcode.mcmmo.events.BlockBreak;
+import com.civiledcode.mcmmo.events.Mining;
 import com.civiledcode.mcmmo.events.CheckRewardsEvent;
 import com.civiledcode.mcmmo.events.Combat;
 import com.civiledcode.mcmmo.events.PlayerJoin;
@@ -59,7 +59,7 @@ public class Main extends PluginBase implements Listener {
 
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(this, this);
-        getServer().getPluginManager().registerEvents(new BlockBreak(), this);
+        getServer().getPluginManager().registerEvents(new Mining(), this);
         getServer().getPluginManager().registerEvents(new Combat(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new CheckRewardsEvent(), this);
