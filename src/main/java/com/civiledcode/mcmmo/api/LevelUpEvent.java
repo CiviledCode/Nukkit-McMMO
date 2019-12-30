@@ -3,8 +3,16 @@ package com.civiledcode.mcmmo.api;
 
 import cn.nukkit.Player;
 import cn.nukkit.event.Event;
+import cn.nukkit.event.HandlerList;
 
 public class LevelUpEvent extends Event {
+
+    private static final HandlerList handlers = new HandlerList();
+
+    public static HandlerList getHandlers() {
+        return handlers;
+    }
+
 
     private String type;
     private int level;
