@@ -11,23 +11,18 @@ import com.civiledcode.mcmmo.form.SkillFormWindow;
 public class SkillCommand extends Command {
 
     public SkillCommand() {
-        super("skill", TextFormat.colorize(Main.lang.getString("skillDescription")), "/skill <mining / combat / farming>");
+        super("skill", TextFormat.colorize(Main.lang.getString("skillDescription")), "/skill");
     }
 
     @Override
     public boolean execute(CommandSender sender, String string, String[] args) {
-        try {
-            if (sender instanceof Player) {
-                Player player = (Player) sender;
-                player.showFormWindow(new SkillFormWindow("Skill", TextFormat.colorize(Main.lang.getString("skillDescription"))));
-            } else {
-                sender.sendMessage(TextFormat.colorize(Main.lang.getString("consoleSender")));
-            }
-            return true;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            sender.sendMessage("Usage: /skill <mining / combat / farming>");
-            return false;
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            player.showFormWindow(new SkillFormWindow("Skill", TextFormat.colorize(Main.lang.getString("skillDescription"))));
+        } else {
+            sender.sendMessage(TextFormat.colorize(Main.lang.getString("consoleSender")));
         }
+        return true;
     }
 
 }

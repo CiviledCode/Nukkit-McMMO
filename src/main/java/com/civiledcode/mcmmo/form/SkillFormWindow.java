@@ -13,9 +13,9 @@ public class SkillFormWindow extends FormWindowSimple implements Screen {
 
     public SkillFormWindow(String title, String context) {
         super(title, context);
-        addButton(new ElementButton(TextFormat.colorize(Main.lang.getString("mining")), new ElementButtonImageData("URL", "")));
-        addButton(new ElementButton(TextFormat.colorize(Main.lang.getString("combat")), new ElementButtonImageData("URL", "")));
-        addButton(new ElementButton(TextFormat.colorize(Main.lang.getString("farming")), new ElementButtonImageData("URL", "")));
+        addButton(new ElementButton(TextFormat.colorize(Main.lang.getString("mining")), new ElementButtonImageData(ElementButtonImageData.IMAGE_DATA_TYPE_URL, TextFormat.colorize(Main.cfg.getString("skillMiningImageURL")))));
+        addButton(new ElementButton(TextFormat.colorize(Main.lang.getString("combat")), new ElementButtonImageData(ElementButtonImageData.IMAGE_DATA_TYPE_URL, TextFormat.colorize(Main.cfg.getString("skillCombatImageURL")))));
+        addButton(new ElementButton(TextFormat.colorize(Main.lang.getString("farming")), new ElementButtonImageData(ElementButtonImageData.IMAGE_DATA_TYPE_URL, TextFormat.colorize(Main.cfg.getString("skillFarmingImageURL")))));
     }
 
     @Override
