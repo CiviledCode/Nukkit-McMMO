@@ -14,7 +14,7 @@ public class PlayerJoin implements Listener {
             try {
                 Main.getInstance().getLogger().info(Main.getPlayerDatabase().executeSelect("SELECT * FROM players WHERE name='" + event.getPlayer().getName() + "'").getString("name"));
             } catch(SQLException e) {
-                Main.getPlayerDatabase().executeUpdate("INSERT INTO IF NOT EXISTS players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
+                Main.getPlayerDatabase().executeUpdate("INSERT INTO players (name,experienceMine,experienceCombat,experienceFarming,levelMine,levelCombat,levelFarming) VALUES (\n" +
                         "  '" + event.getPlayer().getName() + "',\n" +
                         "  '0',\n" +
                         "  '0',\n" +
