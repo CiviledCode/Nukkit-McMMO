@@ -9,7 +9,6 @@ import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.commands.SkillCommand;
 import com.civiledcode.mcmmo.events.Mining;
 import com.civiledcode.mcmmo.events.CheckRewardsEvent;
-import com.civiledcode.mcmmo.events.Combat;
 import com.civiledcode.mcmmo.events.PlayerJoin;
 import com.civiledcode.mcmmo.objects.Database;
 import com.civiledcode.mcmmo.form.Screen;
@@ -60,7 +59,6 @@ public class Main extends PluginBase implements Listener {
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new Mining(), this);
-        getServer().getPluginManager().registerEvents(new Combat(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new CheckRewardsEvent(), this);
     }
