@@ -10,6 +10,8 @@ import com.civiledcode.mcmmo.Main;
 import com.civiledcode.mcmmo.objects.Database;
 import com.civiledcode.mcmmo.objects.PlayerDatabase;
 
+import java.text.DecimalFormat;
+
 public class SkillFormWindow extends FormWindowSimple implements Screen {
 
     public SkillFormWindow(String title, String context) {
@@ -68,10 +70,10 @@ public class SkillFormWindow extends FormWindowSimple implements Screen {
     public void showForm(Player player, String type) {
         PlayerDatabase database = new PlayerDatabase(player);
         int experienceNeeded = database.getExperienceNeededForNextLevel(type);
-        float percentage = (float)((experienceNeeded / database.getExperience(type)) * 100);
+        int percent = (int)((database.getExperience(type) * 100.0f) / experienceNeeded);
         String title = Main.lang.getString("statistics").replace("{TYPE}", type);
-        String content = TextFormat.colorize(Main.lang.getString("level")) + database.getLevel(type) + "\n" + TextFormat.colorize(Main.lang.getString("experience")) + database.getExperience(type) + "/" + experienceNeeded + "\n" + TextFormat.colorize(Main.lang.getString("experiencePercentage") + percentage + "%");
-        FormWindowSimple form = new FormWindowSimple(title, content);
+        String content = TextFormat.colorize(Main.lang.getString("level")) + database.getLevel(type) + "\n" + TextFormat.colorize(Main.lang.getString("experience")) + database.getExperience(type) + "/" + experienceNeeded + "\n" + TextFormat.colorize(Main.lang.getString("experiencePercentage")) + percent + "%";
+        FormWindowSimple form = new FormWindowSimple(title, content + "%");
         player.showFormWindow(form);
     }
 
