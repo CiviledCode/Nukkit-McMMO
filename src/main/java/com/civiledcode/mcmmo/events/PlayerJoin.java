@@ -22,13 +22,12 @@ public class PlayerJoin implements Listener {
                         "  0,\n" +
                         "  1,\n" +
                         "  1,\n" +
-                        "  1\n" +
                         "  1,\n" +
                         "  1,\n" +
-                        "  1\n" +
                         "  1,\n" +
                         "  1,\n" +
-                        ");");
+                        "  1,\n" +
+                        "  1);");
             }
     }
 }
