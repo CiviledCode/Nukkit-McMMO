@@ -7,9 +7,14 @@ xpEarnedByMining: 1
 xpEarnedBySwords: 5
 xpEarnedByUnarmed: 5
 xpEarnedByWoodcutting: 1
-baseMineLevelXp: 500
-baseCombatLevelXp: 500
+baseAcrobaticsLevelXp: 2000
+baseArcheryLevelXp: 500
+baseExcavationLevelXp: 500
 baseFarmingLevelXp: 500
+baseMiningLevelXp: 500
+baseSwordsLevelXp: 500
+baseUnarmedLevelXp: 500
+baseWoodcuttingLevelXp: 500
 skillAcrobaticsImageURL: ""
 skillArcheryImageURL: ""
 skillExcavationImageURL: ""
