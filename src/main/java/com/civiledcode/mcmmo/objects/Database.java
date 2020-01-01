@@ -28,7 +28,7 @@ public class Database {
             stmt.executeUpdate(query);
             stmt.close();
         } catch(SQLException e) {
-            e.printStackTrace();
+           return;
         }
     }
 
