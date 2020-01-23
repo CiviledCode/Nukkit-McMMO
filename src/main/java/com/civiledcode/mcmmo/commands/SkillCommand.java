@@ -12,7 +12,7 @@ import com.civiledcode.mcmmo.form.SkillFormWindow;
 public class SkillCommand extends Command {
 
     public SkillCommand() {
-        super("skill", TextFormat.colorize(Main.lang.getString("skillDescription")), "/skill");
+        super("skill", TextFormat.colorize(Main.lang.getString("skillDescription")), "/skill", new String[]{"mcstats"});
     }
 
     @Override

@@ -1,6 +1,8 @@
 bootMessage: "&aMc&eMMO has now started."
 shutdownMessage: "&aMc&eMMO is now shutting down."
 skillDescription: "View your statistics for a skill"
+mcmmoCommandDescription: "View information about McMMO and how to use it's commands"
+mcmmoInformation: "McMMO is a renowned server-side modification for Minecraft. McMMO introduces skills and abilities into Minecraft enhancing the native mechanics while extending the gameplay in ways that feel natural and require no client mods. mcMMO offers RPG experiences, leaderboards and parties. A list of commands can be found below:%n/mcstats - Shows your current statistics for every skill%n/ptp [username] - Teleport to your party members%n/party [args] - Allows you to create and manage parties%n/partychat - Allows you to chat with party members"
 statistics: "{TYPE} Statistics:"
 level: "Level: "
 experience: "Experience: "

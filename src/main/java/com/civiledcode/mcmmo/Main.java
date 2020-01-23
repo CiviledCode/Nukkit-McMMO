@@ -6,6 +6,7 @@ import cn.nukkit.event.player.PlayerFormRespondedEvent;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
+import com.civiledcode.mcmmo.commands.McMMOCommand;
 import com.civiledcode.mcmmo.commands.SkillCommand;
 import com.civiledcode.mcmmo.events.*;
 import com.civiledcode.mcmmo.objects.Database;
@@ -30,6 +31,7 @@ public class Main extends PluginBase implements Listener {
     }
 
     public void onEnable() {
+        getDataFolder().mkdir();
         instance = this;
         database = new Database("database");
         saveDefaultConfig();
@@ -52,6 +54,7 @@ public class Main extends PluginBase implements Listener {
 
     private void registerCommands() {
         getServer().getCommandMap().register("skill", new SkillCommand());
+        getServer().getCommandMap().register("mcmmo", new McMMOCommand());
     }
 
     private void registerEvents() {

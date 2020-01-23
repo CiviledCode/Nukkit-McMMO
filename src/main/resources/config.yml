@@ -1,3 +1,7 @@
+# McMMO
+# An McMMO plugin for Bedrock edition with all the same abilities as Java
+# Developed by Civiled and JustTal
+
 baseChangeAmount: 1.1
 xpEarnedByAcrobatics: 1
 xpEarnedByArchery: 5
@@ -23,12 +27,70 @@ skillMiningImageURL: ""
 skillSwordsImageURL: ""
 skillUnarmedImageURL: ""
 skillWoodcuttingImageURL: ""
+
 mining-3: # On Mining Level 3
   command: "effect {PLAYER} haste {PERM} 2"
   tip: "&eGained Haste 2 forever!"
 swords-5: # On Swords Level 10
   command: "effect {PLAYER} strength {PERM} 2"
   tip: "&eGained Strength 2 forever!"
-farming-10: # On Farming Level 10
+farming-5: # On Farming Level 5
   command: "give {PLAYER} 351:15 32"
   tip: "&eGiven Bone Meal! (32)"
+
+# McMMO Addons
+# Uncomment the below if the McMMO Addons plugin is running on this server
+# This will notify your users about them unlocking a new skill
+# Changing the ABILITY-LEVEL will not change McMMO Addon's levels and skills, they are only to notify the user of them unlocking a skill
+
+#acrobatics-10:
+#  command: ""
+#  tip: "&eUnlocked Bunny skill! (Chance to get Jump Boost 2 for 5 seconds)"
+#acrobatics-15:
+#  command: ""
+#  tip: "&eUnlocked Roll skill! (Chance to remove fall damage)"
+#archery-20:
+#  command: ""
+#  tip: "&eUnlocked Chilled skill! (Chance to slow enemies down for 1.5 seconds)"
+#archery-10:
+#  command: ""
+#  tip: "&eUnlocked Double Tap skill! (Chance to deal double damage taken from bow shots)"
+#archery-30:
+#  command: ""
+#  tip: "&eUnlocked Knockdown skill! (Chance to make the hit player drop the item they are holding)"
+#excavation-10:
+#  command: ""
+#  tip: "&eUnlocked Bloodrush skill! (Chance to give Haste 2 for 5 seconds)"
+#excavation-20:
+#  command: ""
+#  tip: "&eUnlocked Driller skill! (Chance to break the surrounding blocks in a 3x3 area)"
+#farming-10:
+#  command: ""
+#  tip: "&eUnlocked Sugar Rush skill! (Chance to get speed 2 whilst breaking sugar cane)"
+#farming-20:
+#  command: ""
+#  tip: "&eUnlocked Crop Jump skill! (Chance to not break crops when jumping on them)"
+#mining-10:
+#  command: ""
+#  tip: "&eUnlocked Bloodrush skill! (Chance to give Haste 2 for 5 seconds)"
+#mining-20:
+#  command: ""
+#  tip: "&eUnlocked Driller skill! (Chance to break the surrounding blocks in a 3x3 area)"
+#swords-10:
+#  command: ""
+#  tip: "&eUnlocked Shattering skill! (Chance to damage your enemies armor by 5 durability)"
+#swords-25:
+#  command: ""
+#  tip: "&eUnlocked Lifesteal skill! (Chance to take a heart from your enemy while healing you for a heart)"
+#swords-35:
+#  command: ""
+#  tip: "&eUnlocked Rage skill! (Chance to gain Strength 3 for 3 seconds)"
+#unarmed-10:
+#  command: ""
+#  tip: "&eUnlocked Iron Fist skill! (Chance to deal additional damage to the enemies item in hand)"
+#unarmed-25:
+#  command: ""
+#  tip: "&eUnlocked Knockout skill! (Chance to give enemies blindness and slowness for 3 seconds)"
+#unarmed-35:
+#  command: ""
+#  tip: "&eUnlocked Swiper skill! (Chance to clear all enemies effects)"

@@ -7,10 +7,7 @@ import cn.nukkit.form.element.ElementButtonImageData;
 import cn.nukkit.form.window.FormWindowSimple;
 import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.Main;
-import com.civiledcode.mcmmo.objects.Database;
 import com.civiledcode.mcmmo.objects.PlayerDatabase;
-
-import java.text.DecimalFormat;
 
 public class SkillFormWindow extends FormWindowSimple implements Screen {
 
@@ -29,39 +26,38 @@ public class SkillFormWindow extends FormWindowSimple implements Screen {
     @Override
     public void onResponse(PlayerFormRespondedEvent event) {
         Player player = event.getPlayer();
-        PlayerDatabase database = new PlayerDatabase(player);
         int response = getResponse().getClickedButtonId();
         switch (response) {
             case 0: {
-                showForm(player, database.TYPE_ACROBATICS);
+                showForm(player, PlayerDatabase.TYPE_ACROBATICS);
                 break;
             }
             case 1: {
-                showForm(player, database.TYPE_ARCHERY);
+                showForm(player, PlayerDatabase.TYPE_ARCHERY);
                 break;
             }
             case 2: {
-                showForm(player, database.TYPE_EXCAVATION);
+                showForm(player, PlayerDatabase.TYPE_EXCAVATION);
                 break;
             }
             case 3: {
-                showForm(player, database.TYPE_FARMING);
+                showForm(player, PlayerDatabase.TYPE_FARMING);
                 break;
             }
             case 4: {
-                showForm(player, database.TYPE_MINING);
+                showForm(player, PlayerDatabase.TYPE_MINING);
                 break;
             }
             case 5: {
-                showForm(player, database.TYPE_SWORDS);
+                showForm(player, PlayerDatabase.TYPE_SWORDS);
                 break;
             }
             case 6: {
-                showForm(player, database.TYPE_UNARMED);
+                showForm(player, PlayerDatabase.TYPE_UNARMED);
                 break;
             }
             case 7: {
-                showForm(player, database.TYPE_WOODCUTTING);
+                showForm(player, PlayerDatabase.TYPE_WOODCUTTING);
                 break;
             }
         }
@@ -70,7 +66,7 @@ public class SkillFormWindow extends FormWindowSimple implements Screen {
     public void showForm(Player player, String type) {
         PlayerDatabase database = new PlayerDatabase(player);
         int experienceNeeded = database.getExperienceNeededForNextLevel(type);
-        int percent = (int)((database.getExperience(type) * 100.0f) / experienceNeeded);
+        int percent = (int) ((database.getExperience(type) * 100.0f) / experienceNeeded);
         String title = Main.lang.getString("statistics").replace("{TYPE}", type);
         String content = TextFormat.colorize(Main.lang.getString("level")) + database.getLevel(type) + "\n" + TextFormat.colorize(Main.lang.getString("experience")) + database.getExperience(type) + "/" + experienceNeeded + "\n" + TextFormat.colorize(Main.lang.getString("experiencePercentage")) + percent + "%";
         FormWindowSimple form = new FormWindowSimple(title, content + "%");

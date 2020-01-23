@@ -20,8 +20,10 @@ public class CheckRewardsEvent implements Listener {
         ConfigSection cs = config.getSection(type.toLowerCase() + "-" + level);
         String command = cs.getString("command");
         String tip = cs.getString("tip");
-        if (command.length() > 2 && tip.length() > 2) {
+        if (command.length() > 2) {
             Main.getInstance().getServer().dispatchCommand(Main.getInstance().getServer().getConsoleSender(), command.replace("{PLAYER}", player.getName()).replace("{PERM}", "999999"));
+        }
+        if (tip.length() > 2) {
             player.sendActionBar(TextFormat.colorize(tip));
         }
     }
