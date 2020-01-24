@@ -44,6 +44,14 @@ public class Database {
         return set;
     }
 
+    public Statement createStatement() {
+        try {
+            return connection.createStatement();
+        } catch(SQLException e) {
+            return null;
+        }
+    }
+
     public int getInt(String query, String name) {
         try {
             if (!connection.isClosed()) {

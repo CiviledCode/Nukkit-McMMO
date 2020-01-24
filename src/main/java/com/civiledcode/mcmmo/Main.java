@@ -1,5 +1,6 @@
 package com.civiledcode.mcmmo;
 
+import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerFormRespondedEvent;
@@ -8,17 +9,21 @@ import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 import com.civiledcode.mcmmo.commands.McMMOCommand;
 import com.civiledcode.mcmmo.commands.SkillCommand;
+import com.civiledcode.mcmmo.commands.admin.*;
 import com.civiledcode.mcmmo.events.*;
 import com.civiledcode.mcmmo.objects.Database;
 import com.civiledcode.mcmmo.form.Screen;
 
 import java.io.File;
+import java.util.HashSet;
 
 public class Main extends PluginBase implements Listener {
 
     private static Main instance;
 
     private static Database database;
+
+    public static HashSet<Player> god = new HashSet<>();
 
     public static Config cfg;
 
@@ -42,7 +47,6 @@ public class Main extends PluginBase implements Listener {
         initializeDatabase();
         registerCommands();
         registerEvents();
-
         baseChangeAmount = getConfig().getDouble("baseChangeAmount");
     }
 
@@ -55,11 +59,21 @@ public class Main extends PluginBase implements Listener {
     private void registerCommands() {
         getServer().getCommandMap().register("skill", new SkillCommand());
         getServer().getCommandMap().register("mcmmo", new McMMOCommand());
+        getServer().getCommandMap().register("mcadmin", new McMMOAdminCommand());
+        getServer().getCommandMap().register("mcremove", new McRemoveCommand());
+        getServer().getCommandMap().register("mcpurge", new McPurgeCommand());
+        getServer().getCommandMap().register("addxp", new AddXpCommand());
+        getServer().getCommandMap().register("addlevels", new AddLevelCommand());
+        getServer().getCommandMap().register("adminchat", new AdminChatCommand());
+        getServer().getCommandMap().register("mcgod", new McGodCommand());
+        getServer().getCommandMap().register("mmoedit", new MmoEditCommand());
     }
 
     private void registerEvents() {
+        // Events
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDamageEvent(), this);
         getServer().getPluginManager().registerEvents(new CheckRewardsEvent(), this);
 
         // Skill Events

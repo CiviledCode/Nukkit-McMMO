@@ -7,7 +7,7 @@ import com.civiledcode.mcmmo.Main;
 public class McMMOHelpWindow extends FormWindowSimple {
 
     public McMMOHelpWindow() {
-        super("McMMO", TextFormat.colorize(Main.lang.getString("mcmmoInformation")).replace("%n", "\n"));
+        super(TextFormat.colorize(Main.lang.getString("mcmmoInformationTitle")), TextFormat.colorize(Main.lang.getString("mcmmoInformation")).replace("%n", "\n"));
     }
 
 }
